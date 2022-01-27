@@ -1,0 +1,158 @@
+<div class="w-75 mx-auto border p-4">
+    <form class="row g-3" (ngSubmit)="formSubmit()" [formGroup]="myform" enctype="multipart/form-data" novalidate>
+        <h3 class="text-center py-3">Registration Form</h3>
+        <div class="col-md-4">
+          <label for="" class="form-label">First Name <strong class="required">*</strong></label>
+          <input type="text" class="form-control" formControlName="firstname"  id="" placeholder="Enter First Name" minlength="2" maxlength="15" required>
+          <div *ngIf="myform.controls['firstname'].invalid && (myform.controls['firstname'].dirty || myform.controls['firstname'].touched)">
+            <small>First Name Is required</small>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <label for="" class="form-label">Middle Name <strong class="required">*</strong></label>
+          <input type="text" class="form-control" formControlName="middlename"  id="" placeholder="Enter Middle Name" [minlength]="2" [maxLength]="15">
+          <div *ngIf="myform.controls['middlename'].invalid && (myform.controls['middlename'].dirty || myform.controls['middlename'].touched)">
+            <small>Middle Name Is required</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <label for="" class="form-label">Last Name <strong class="required">*</strong></label>
+            <input type="text" class="form-control" formControlName="lastname"  id="" placeholder="Enter Last Name" [minlength]="2" maxlength="15" required>
+            <div *ngIf="myform.controls['lastname'].invalid && (myform.controls['lastname'].dirty || myform.controls['lastname'].touched)">
+              <small>Last Name Is required</small>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="" class="form-label">Email <strong class="required">*</strong></label>
+            <input type="email" class="form-control" formControlName="email"  id="" placeholder="Enter Your Email" required>
+            <div *ngIf="myform.controls['email'].invalid && (myform.controls['email'].dirty || myform.controls['email'].touched)">
+              <small>Email Is required</small>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="">Gender <strong class="required">*</strong></label>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="gendercontrol" value="male" type="radio" name="gendercontrol" id="flexRadioDefault1" >
+              <label class="form-check-label" for="flexRadioDefault1">Male</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" formControlName="gendercontrol" value="female" type="radio" name="gendercontrol" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">Female</label>
+            </div>
+          </div>
+          <!-- <div class="col-6">
+            <label for="">Subject</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Subject 1
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Subject 2
+              </label>
+            </div>
+          </div> -->
+          <div class="col-6">
+            <label for="" class="form-label text-nowrap">Mobile Number <strong class="required">*</strong></label>
+            <input type="number" formControlName="mobile" class="form-control" id="" placeholder="Enter Mobile Number" required>
+            <div *ngIf="myform.controls['mobile'].invalid && (myform.controls['mobile'].dirty || myform.controls['mobile'].touched)">
+              <small>Mobile Number Is required</small>
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="" class="form-label text-nowrap ">Date Of Birth <strong class="required">*</strong></label>
+            <input type="date" class="form-control" formControlName="DOB"  id="" placeholder="Enter Date Of Birth" required>
+            <div *ngIf="myform.controls['DOB'].invalid && (myform.controls['DOB'].dirty || myform.controls['DOB'].touched)">
+              <small>Date Of Birth Is required</small>
+            </div>
+          </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Current Address <strong class="required">*</strong></label>
+          <input type="text" class="form-control" formControlName="currentaddress" id="" placeholder="Enter Address 1" required>
+          <div *ngIf="myform.controls['currentaddress'].invalid && (myform.controls['currentaddress'].dirty || myform.controls['currentaddress'].touched)">
+            <small>Current Address Is required</small>
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Permament Address <strong class="required">*</strong></label>
+          <input type="text" class="form-control" formControlName="permamentaddress" id="" placeholder="Enter Address 2">
+          <div *ngIf="myform.controls['permamentaddress'].invalid && (myform.controls['permamentaddress'].dirty || myform.controls['permamentaddress'].touched)">
+            <small>Permament Address Is required</small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City <strong class="required">*</strong></label>
+          <input type="text" class="form-control" formControlName="city" placeholder="Enter City" required>
+          <div *ngIf="myform.controls['city'].invalid && (myform.controls['city'].dirty || myform.controls['city'].touched)">
+            <small>City Is required</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State <strong class="required">*</strong></label>
+          <select  id="" formControlName="state" class="form-select">
+            <option selected>Choose City ...</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Ladakh">Ladakh</option>
+            <option value="Ladakh">Ladakh</option>
+            <option value="Puducherry">Puducherry</option>
+          </select>
+          <div *ngIf="myform.controls['state'].invalid && (myform.controls['state'].dirty || myform.controls['state'].touched)">
+            <small>State Is required</small>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip <strong class="required">*</strong></label>
+          <input type="text" formControlName="zip" class="form-control"  id="inputZip" required> 
+          <div *ngIf="myform.controls['zip'].invalid && (myform.controls['zip'].dirty || myform.controls['zip'].touched)">
+            <small>Zip Is required</small>
+          </div>
+        </div>
+        <!-- <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div> -->
+        <div class="col-12">
+          <button type="submit" [disabled]="!myform.valid" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+</div>

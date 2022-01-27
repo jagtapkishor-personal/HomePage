@@ -1,0 +1,6 @@
+@media screen and (min-width: 1024px) {
+    ul{
+        position: absolute;
+        right: 120px;
+    }
+  }
